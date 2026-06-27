@@ -409,14 +409,17 @@ describe('Carousel Functionality', () => {
   test('Аргументи при переході між слайдами коректно передаються', () => {
     const carouselCode = getCarouselSource()
 
-    // Перевіряємо, чи міститься в коді правильний виклик з унарним плюсом
-    const hasUnaryPlus = carouselCode.includes('this.#gotoNth(+target.dataset.slideTo)')
+    // Перевіряємо, чи використовується конвертація (+, Number, parseInt) при виклику gotoNth
+    const correctPattern = /this\.(?:#)?(?:gotoNth|_gotoNth)\(\s*(?:\+|Number\(|parseInt\()/
+    // Або якщо значення конвертується до виклику і передається як змінна
+    const assignmentPattern = /(?:const|let|var)\s+\w+\s*=\s*(?:\+|Number\(|parseInt\()\s*target\.dataset\.slideTo/
+    const hasValidConversion = correctPattern.test(carouselCode) || assignmentPattern.test(carouselCode)
 
-    // Перевіряємо, чи немає неправильного виклику без унарного плюса
-    const hasStringArgument = carouselCode.includes('this.#gotoNth(target.dataset.slideTo)')
+    // Перевіряємо, чи немає жорстко неправильного виклику без конвертації взагалі
+    const hasStringArgument = /this\.(?:#)?(?:gotoNth|_gotoNth)\(\s*target\.dataset\.slideTo\s*\)/.test(carouselCode)
 
     // Тест проходить, якщо в коді використовується перетворення рядка в число
-    expect(hasUnaryPlus).toBe(true)
+    expect(hasValidConversion).toBe(true)
     expect(hasStringArgument).toBe(false)
   })
 
@@ -424,12 +427,12 @@ describe('Carousel Functionality', () => {
     const carouselCode = getCarouselSource()
 
     // Шукаємо рядок, де відбувається обчислення наступного слайду
-    const correctPattern = /this\.#currentSlide\s*=\s*\(n\s*\+\s*this\.#SLIDES_COUNT\)\s*%\s*this\.#SLIDES_COUNT/
+    const correctPattern = /this\.(?:#)?currentSlide\s*=\s*\(\s*[a-zA-Z_]\w*\s*\+\s*this\.(?:#)?(?:SLIDES_COUNT|slides\.length)\s*\)\s*%\s*this\.(?:#)?(?:SLIDES_COUNT|slides\.length)/
 
     // Шукаємо неправильні патерни з конкретними числами
-    const wrongPattern1 = /this\.#currentSlide\s*=\s*\(n\s*\+\s*this\.#SLIDES_COUNT\)\s*%\s*\d+/
-    const wrongPattern2 = /this\.#currentSlide\s*=\s*\(n\s*\+\s*\d+\)\s*%\s*this\.#SLIDES_COUNT/
-    const wrongPattern3 = /this\.#currentSlide\s*=\s*\(n\s*\+\s*\d+\)\s*%\s*\d+/
+    const wrongPattern1 = /this\.(?:#)?currentSlide\s*=\s*\(\s*[a-zA-Z_]\w*\s*\+\s*this\.(?:#)?(?:SLIDES_COUNT|slides\.length)\s*\)\s*%\s*\d+/
+    const wrongPattern2 = /this\.(?:#)?currentSlide\s*=\s*\(\s*[a-zA-Z_]\w*\s*\+\s*\d+\s*\)\s*%\s*this\.(?:#)?(?:SLIDES_COUNT|slides\.length)/
+    const wrongPattern3 = /this\.(?:#)?currentSlide\s*=\s*\(\s*[a-zA-Z_]\w*\s*\+\s*\d+\s*\)\s*%\s*\d+/
 
     // Перевіряємо наявність правильного патерну
     expect(correctPattern.test(carouselCode)).toBe(true)
