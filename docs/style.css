@@ -626,22 +626,29 @@ body {
 
 .slide-counter {
   position: fixed;
-  right: 120px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 90px;
+  right: 40px;
   z-index: 50;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 24px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   font-family: var(--font-body);
-  font-weight: 300;
   letter-spacing: 0.05em;
+  transition: all var(--transition-smooth);
 }
 
 .slide-counter__current {
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -650,17 +657,23 @@ body {
   line-height: 1;
 }
 
-.slide-counter__line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--color-gradient-start), transparent);
-  opacity: 0.4;
+.slide-counter__line,
+.slide-counter__separator {
+  width: 2px;
+  height: 24px;
+  background: linear-gradient(to bottom, var(--color-gradient-start), var(--color-gradient-end));
+  opacity: 0.5;
+  transform: rotate(15deg);
+  display: block;
+  font-size: 0;
+  color: transparent;
 }
 
 .slide-counter__total {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1;
+  font-weight: 500;
 }
 
 .fab-like {
@@ -865,7 +878,19 @@ body.idle { cursor: none; }
   }
 
   .slide-counter {
-    right: 80px;
+    top: 70px;
+    right: 24px;
+    padding: 8px 18px;
+  }
+  .slide-counter__current {
+    font-size: 1.3rem;
+  }
+  .slide-counter__line,
+  .slide-counter__separator {
+    height: 18px;
+  }
+  .slide-counter__total {
+    font-size: 0.95rem;
   }
 
   .site-footer {
