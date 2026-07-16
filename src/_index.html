@@ -1,28 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium interactive carousel slider with swipe support, keyboard navigation, and stunning nature photography">
+  <title>Aurora Carousel — Premium Image Slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Розмітка не використовується у тестуванні, але ви можете писати тут потрібний вам HTML та перевіряти його у браузері разом із логікою слайдера у main.js -->
+  <header class="hero-header">
+    <div class="hero-header__logo">
+      <i class="fas fa-mountain-sun"></i>
+      <span>Aurora</span>
+    </div>
+    <nav class="hero-header__nav">
+      <a href="#" class="hero-header__link active">Gallery</a>
+      <a href="#" class="hero-header__link">Collections</a>
+      <a href="#" class="hero-header__link">About</a>
+    </nav>
+  </header>
 
   <div id="carousel" class="carousel">
     <div id="slides-container" class="slides">
-      <div class="slide active" style="background-color: red;"></div>
-      <div class="slide" style="background-color: blue;"></div>
-      <div class="slide" style="background-color: green;"></div>
-      <div class="slide" style="background-color: yellow;"></div>
-      <div class="slide" style="background-color: purple;"></div>
+
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag">Switzerland</span>
+          <h2 class="slide__title">Alpine Majesty</h2>
+          <p class="slide__description">Where clouds rest upon the ancient peaks and silence speaks in the language of wind.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag">Maldives</span>
+          <h2 class="slide__title">Turquoise Dreams</h2>
+          <p class="slide__description">Crystal clear waters gently caress the pristine white sands of paradise.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag">New Zealand</span>
+          <h2 class="slide__title">Emerald Valleys</h2>
+          <p class="slide__description">Nature's canvas painted with endless shades of green under misty morning skies.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag">Iceland</span>
+          <h2 class="slide__title">Northern Lights</h2>
+          <p class="slide__description">Dancing curtains of ethereal light illuminate the arctic sky in cosmic splendor.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag">Canada</span>
+          <h2 class="slide__title">Mirror Lake</h2>
+          <p class="slide__description">Perfect reflections of towering pines create a world of symmetry and serenity.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-bar__fill" id="progress-fill"></div>
     </div>
   </div>
 
-  <!-- Розташування та імя файлу скрипта змінювати неможна -->
+  <div class="slide-counter" id="slide-counter">
+    <span class="slide-counter__current" id="counter-current">01</span>
+    <span class="slide-counter__separator">/</span>
+    <span class="slide-counter__total" id="counter-total">05</span>
+  </div>
+
+  <footer class="site-footer">
+    <p>Made with <i class="fas fa-heart"></i> — Hilel Homework #28</p>
+    <p class="site-footer__hint">
+      <kbd>←</kbd> <kbd>→</kbd> Navigate &nbsp;|&nbsp; <kbd>Space</kbd> Play/Pause &nbsp;|&nbsp; Swipe on mobile
+    </p>
+  </footer>
+
   <script src="main.js" type="module"></script>
 
 </body>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurora Carousel — Premium interactive image slider with swipe, keyboard navigation, fullscreen mode, and stunning nature photography">
+  <meta property="og:title" content="Aurora Carousel — Premium Image Slider">
+  <meta property="og:description" content="Interactive carousel slider with swipe support, keyboard controls, and stunning nature photography.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80">
+  <meta property="og:type" content="website">
+  <title>Aurora Carousel — Premium Image Slider</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__ring"></div>
+      <div class="preloader__ring"></div>
+      <div class="preloader__ring"></div>
+      <div class="preloader__logo">
+        <i class="fas fa-mountain-sun"></i>
+      </div>
+      <p class="preloader__text">Loading Aurora</p>
+    </div>
+  </div>
+
+  <header class="hero-header" id="hero-header">
+    <div class="hero-header__logo">
+      <i class="fas fa-mountain-sun"></i>
+      <span>Aurora</span>
+    </div>
+    <nav class="hero-header__nav">
+      <a href="#" class="hero-header__link active" id="nav-gallery">Gallery</a>
+      <a href="#" class="hero-header__link" id="nav-collections">Collections</a>
+      <a href="#" class="hero-header__link" id="nav-about">About</a>
+    </nav>
+    <div class="hero-header__actions">
+      <button class="action-btn" id="fullscreen-btn" title="Toggle Fullscreen">
+        <i class="fas fa-expand"></i>
+      </button>
+      <button class="action-btn" id="theme-btn" title="Toggle Theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <div id="carousel" class="carousel">
+    <div id="slides-container" class="slides">
+
+      <div class="slide active" data-color="#1a1a3e" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag"><i class="fas fa-location-dot"></i> Switzerland</span>
+          <h2 class="slide__title">Alpine Majesty</h2>
+          <p class="slide__description">Where clouds rest upon the ancient peaks and silence speaks in the language of wind.</p>
+          <div class="slide__meta">
+            <span class="slide__meta-item"><i class="fas fa-camera"></i> Landscape</span>
+            <span class="slide__meta-item"><i class="fas fa-mountain"></i> 4,478m elevation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#0d2b45" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag"><i class="fas fa-location-dot"></i> Maldives</span>
+          <h2 class="slide__title">Turquoise Dreams</h2>
+          <p class="slide__description">Crystal clear waters gently caress the pristine white sands of paradise.</p>
+          <div class="slide__meta">
+            <span class="slide__meta-item"><i class="fas fa-water"></i> Ocean</span>
+            <span class="slide__meta-item"><i class="fas fa-temperature-high"></i> 28°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#1a3a1a" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag"><i class="fas fa-location-dot"></i> New Zealand</span>
+          <h2 class="slide__title">Emerald Valleys</h2>
+          <p class="slide__description">Nature's canvas painted with endless shades of green under misty morning skies.</p>
+          <div class="slide__meta">
+            <span class="slide__meta-item"><i class="fas fa-leaf"></i> Forest</span>
+            <span class="slide__meta-item"><i class="fas fa-tree"></i> Ancient Growth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#0a1628" style="background-image: url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag"><i class="fas fa-location-dot"></i> Iceland</span>
+          <h2 class="slide__title">Northern Lights</h2>
+          <p class="slide__description">Dancing curtains of ethereal light illuminate the arctic sky in cosmic splendor.</p>
+          <div class="slide__meta">
+            <span class="slide__meta-item"><i class="fas fa-star"></i> Aurora Borealis</span>
+            <span class="slide__meta-item"><i class="fas fa-temperature-low"></i> -15°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#1a2a1a" style="background-image: url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=1920&q=80');">
+        <div class="slide__content">
+          <span class="slide__tag"><i class="fas fa-location-dot"></i> Canada</span>
+          <h2 class="slide__title">Mirror Lake</h2>
+          <p class="slide__description">Perfect reflections of towering pines create a world of symmetry and serenity.</p>
+          <div class="slide__meta">
+            <span class="slide__meta-item"><i class="fas fa-water"></i> Lake</span>
+            <span class="slide__meta-item"><i class="fas fa-compass"></i> British Columbia</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-bar__fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div class="thumbnail-strip" id="thumbnail-strip">
+    <div class="thumbnail active" data-index="0">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=60" alt="Alpine Majesty" loading="lazy">
+      <span class="thumbnail__label">Alps</span>
+    </div>
+    <div class="thumbnail" data-index="1">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&q=60" alt="Turquoise Dreams" loading="lazy">
+      <span class="thumbnail__label">Maldives</span>
+    </div>
+    <div class="thumbnail" data-index="2">
+      <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=200&q=60" alt="Emerald Valleys" loading="lazy">
+      <span class="thumbnail__label">NZ</span>
+    </div>
+    <div class="thumbnail" data-index="3">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=200&q=60" alt="Northern Lights" loading="lazy">
+      <span class="thumbnail__label">Iceland</span>
+    </div>
+    <div class="thumbnail" data-index="4">
+      <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=200&q=60" alt="Mirror Lake" loading="lazy">
+      <span class="thumbnail__label">Canada</span>
+    </div>
+  </div>
+
+  <div class="slide-counter" id="slide-counter">
+    <span class="slide-counter__current" id="counter-current">01</span>
+    <div class="slide-counter__line"></div>
+    <span class="slide-counter__total" id="counter-total">05</span>
+  </div>
+
+  <button class="fab-like" id="fab-like" title="Like this photo">
+    <i class="far fa-heart"></i>
+    <span class="fab-like__count" id="like-count">0</span>
+  </button>
+
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-message">Action completed</span>
+  </div>
+
+  <footer class="site-footer" id="site-footer">
+    <p>Made with <i class="fas fa-heart"></i> — Hilel Homework #28</p>
+    <p class="site-footer__hint">
+      <kbd>←</kbd> <kbd>→</kbd> Navigate &nbsp;|&nbsp;
+      <kbd>Space</kbd> Play/Pause &nbsp;|&nbsp;
+      <kbd>F</kbd> Fullscreen &nbsp;|&nbsp;
+      <kbd>L</kbd> Like &nbsp;|&nbsp;
+      Swipe on mobile
+    </p>
+  </footer>
+
+  <script src="main.js" type="module"></script>
+
+</body>
+
+</html>
