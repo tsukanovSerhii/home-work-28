@@ -392,8 +392,6 @@ body {
 .control-pause {
   position: absolute;
   z-index: 5;
-  top: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,7 +405,10 @@ body {
 
 .control-prev,
 .control-next {
+  top: 50%;
+  transform: translateY(-50%);
   width: 80px;
+  height: 80px;
   transition: all var(--transition-fast);
 }
 
@@ -446,10 +447,8 @@ body {
 }
 
 .control-pause {
-  top: auto;
   bottom: 36px;
-  right: 60px;
-  left: auto;
+  left: 40px;
   width: 48px;
   height: 48px;
   padding: 0;
@@ -478,7 +477,7 @@ body {
   position: absolute;
   z-index: 10;
   bottom: 42px;
-  left: 60px;
+  left: 110px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -627,8 +626,9 @@ body {
 
 .slide-counter {
   position: fixed;
-  right: 56px;
-  bottom: 120px;
+  right: 120px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -855,17 +855,17 @@ body.idle { cursor: none; }
   }
 
   .indicators {
-    left: 24px;
+    left: 80px;
     bottom: 100px;
   }
 
   .control-pause {
-    right: 24px;
+    left: 24px;
     bottom: 94px;
   }
 
   .slide-counter {
-    right: 20px;
+    right: 80px;
   }
 
   .site-footer {
